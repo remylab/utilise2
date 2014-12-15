@@ -1,0 +1,18 @@
+
+## Apache2 configuration
+a2enmod proxy
+a2enmod proxy_http
+
+## Virtual host
+vi /etc/apache2/sites-available/utilisetoncorps.ca.2.conf
+
+<VirtualHost *:80>
+  ProxyPreserveHost On
+  ServerName new.utilisetoncorps.ca
+  ProxyPass  /excluded !
+  ProxyPass / http://127.0.0.1:9000/
+  ProxyPassReverse / http://127.0.0.1:9000/
+  ErrorLog /var/www/logs/utilise2-error.log
+  CustomLog /var/www/logs/utilise2-error.log combined
+</VirtualHost>
+
