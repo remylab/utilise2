@@ -1,7 +1,9 @@
 @(message: String)
+@import layouts._
 
-@main("Welcome to Play") {
+@head = {
+}
 
-    @play20.welcome(message, style = "Java")
-
+@main("Yoga et méditation")(head) {
+    <p>@message</p>
 }
