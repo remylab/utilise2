@@ -12,6 +12,24 @@ body {
 p {
   line-height: 1.5;
   margin: 30px 0;
+  font-size: medium;
+}
+p.big {
+  font-size: 20px;
+}
+.alert-info p {
+  margin : 12px 0;
+  font-size: 75%;
+}
+
+@media only screen and (min-width: 768px) {
+	p {
+	  font-size: 22px;
+	}
+	.alert-info p {
+	  font-size: 18px;
+	  padding-left: 20px;
+	}
 }
 p a {
   text-decoration: underline;
@@ -24,6 +42,9 @@ h5,
 h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 800;
+}
+alert-info h1,h2,h3,h4,h5,h6 {
+	margin:0;
 }
 a {
   color: #404040;
@@ -40,11 +61,17 @@ blockquote {
   color: #808080;
   font-style: italic;
 }
+
 hr.small {
   max-width: 100px;
   margin: 15px auto;
   border-width: 4px;
   border-color: white;
+}
+
+hr.dark {
+  border-width: 2px;
+  border-color: #808080;
 }
 .navbar-custom {
   position: absolute;

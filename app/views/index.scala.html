@@ -1,9 +1,71 @@
-@(message: String)
+@()
 @import layouts._
 
 @head = {
 }
 
-@main("Yoga et méditation")(head) {
-    <p>@message</p>
+@heading = {
+	<h1>Utilise ton corps</h1>
+	<hr class="small">
+	<span class="subheading">Yoga et méditation</span>
+}
+
+@main("Yoga et méditation")(head)(heading)("home-bg.jpg") {
+<div class="row">
+   <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="post-preview">
+         <div class="alert alert-info">
+            <h3>Nouveaux cours en janvier 2015</h3>
+            <p class="info">
+               Yoga et méditation, du 14 janvier au 18 mars, inscriptions: <b>utilisetoncorps@@gmail.com</b>.
+               <br><br>
+               Prix 150$, paiement au 1er cours. Adresse :
+               <br>
+               304 rue Faillon Est (entre Drolet et Henri-Julien)<br>
+               Infos : 514 886-5210
+            </p>
+         </div>
+      </div>
+      <hr class="dark">
+      <div class="post-preview">
+         <h2 class="post-title">
+            Utilise ton corps
+         </h2>
+         <p class="post-meta">Posté le 14 décembre 2014</p>
+         <p>
+            Cette phrase-là, je me la répétais souvent lors de ma deuxième grossesse pour me rappeler que mes douleurs "physiques" valaient vraiment la peine. 
+            J'allais avoir un bébé! Pour moi, il n'y rien de plus beau. Honnêtement, mes douleurs étaient avant tout mentales. 
+            J'avais du mal à accepter de voir des "énormes" varices apparaître sur une de mes jambes. Je n'avais aucun contrôle sur la circulation 
+            sanguine qui se faisait de moins en moins bonne et c'était insupportable. À quoi j'allais ressembler après ma grossesse?! Mais je trouvais 
+            encore plus insupportable de me voir aliénée par quelque chose de purement physique. En fait, je souffrais de la peur mais pas vraiment de douleur. 
+            Et cette peur prenait le contrôle de ma vie quotidienne. Je ne sais pas si mais ma fille aimerait lire ça, mais elle vaut mille 
+            varices sur mes jambes! Aujourd'hui je n'ai plus peur, presque plus; et "utilise ton corps" exprime bien plus qu'à l'origine. 
+            Mon corps subira des transformations toute ma vie, parce qu'il m'accompagne dans ma croissance personnelle. 
+            Il me montre ce que j'ai du mal à voir, est le reflet de qui je suis et me sert d'outil. Je respire, je bouge et je ressens ce 
+            qui vient de l'extérieur et de l'intérieur. "Utilise ton corps", c'est une invitation à laisser de côté notre tête, notre cerveau, 
+            nos pensées pour revenir à ce qui est ici et maintenant. Notre corps est le témoin du moment présent et le relais entre nous et notre âme. 
+            Qu'est-ce qu' "utilise ton corps" fait résonner en vous?
+         </p>
+      </div>
+      <!--  
+         <hr>
+         <div class="post-preview">
+             <a href="post.html">
+                 <h2 class="post-title">
+                     I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
+                 </h2>
+             </a>
+             <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 18, 2014</p>
+         </div>
+         -->
+      <!-- Pager
+         <hr>
+         <ul class="pager">
+             <li class="next">
+                 <a href="#">autre billets &rarr;</a>
+             </li>
+         </ul>
+          -->
+   </div>
+</div>
 }
