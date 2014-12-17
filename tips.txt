@@ -1,7 +1,11 @@
 
+
 ## Apache2 configuration
 a2enmod proxy
 a2enmod proxy_http
+
+## Reload site conf
+sudo service apache2 reload
 
 ## Virtual host
 vi /etc/apache2/sites-available/utilisetoncorps.ca.2.conf
