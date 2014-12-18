@@ -1,13 +1,14 @@
 @()
 @import layouts._
+@import blog._
 
 @head = {
 }
 
 @heading = {
-	<h1>Utilise ton corps</h1>
-	<hr class="small">
-	<span class="subheading">Yoga et méditation</span>
+    <h1>Utilise ton corps</h1>
+    <hr class="small">
+    <span class="subheading">Yoga et méditation</span>
 }
 
 @main("Yoga et méditation")(head)(heading)("home-bg.jpg") {
@@ -15,57 +16,74 @@
    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <div class="post-preview">
          <div class="alert alert-info">
-            <h3>Nouveaux cours en janvier 2015</h3>
+            <h3>Nouveau cours en janvier 2015</h3>
             <p class="info">
-               Yoga et méditation, du 14 janvier au 18 mars, inscriptions: <b>utilisetoncorps@@gmail.com</b>.
-               <br><br>
-               Prix 150$, paiement au 1er cours. Adresse :
+               Yoga et méditation, <b>mercredi 8h45-10h00</b>, du 14 janvier au 18 mars
                <br>
-               304 rue Faillon Est (entre Drolet et Henri-Julien)<br>
-               Infos : 514 886-5210
+               <b>Inscription&thinsp;:</b> utilisetoncorps@@gmail.com / 514 886 5210
+               <br>
+               <b>Prix&thinsp;:</b> 150$ pour session de 10 cours, paiement au 1er cours
+               <br>
+               <b>Adresse&thinsp;:</b> 304 rue Faillon Est (entre Drolet et Henri-Julien)
+               <br>
+               Studio de yoga professionnel
             </p>
          </div>
       </div>
       <hr class="dark">
-      <div class="post-preview">
-         <h2 class="post-title">
-            Utilise ton corps
-         </h2>
-         <p class="post-meta">Posté le 14 décembre 2014</p>
-         <p>
-            Cette phrase-là, je me la répétais souvent lors de ma deuxième grossesse pour me rappeler que mes douleurs "physiques" valaient vraiment la peine. 
-            J'allais avoir un bébé! Pour moi, il n'y rien de plus beau. Honnêtement, mes douleurs étaient avant tout mentales. 
-            J'avais du mal à accepter de voir des "énormes" varices apparaître sur une de mes jambes. Je n'avais aucun contrôle sur la circulation 
-            sanguine qui se faisait de moins en moins bonne et c'était insupportable. À quoi j'allais ressembler après ma grossesse?! Mais je trouvais 
-            encore plus insupportable de me voir aliénée par quelque chose de purement physique. En fait, je souffrais de la peur mais pas vraiment de douleur. 
-            Et cette peur prenait le contrôle de ma vie quotidienne. Je ne sais pas si mais ma fille aimerait lire ça, mais elle vaut mille 
-            varices sur mes jambes! Aujourd'hui je n'ai plus peur, presque plus; et "utilise ton corps" exprime bien plus qu'à l'origine. 
-            Mon corps subira des transformations toute ma vie, parce qu'il m'accompagne dans ma croissance personnelle. 
-            Il me montre ce que j'ai du mal à voir, est le reflet de qui je suis et me sert d'outil. Je respire, je bouge et je ressens ce 
-            qui vient de l'extérieur et de l'intérieur. "Utilise ton corps", c'est une invitation à laisser de côté notre tête, notre cerveau, 
-            nos pensées pour revenir à ce qui est ici et maintenant. Notre corps est le témoin du moment présent et le relais entre nous et notre âme. 
-            Qu'est-ce qu' "utilise ton corps" fait résonner en vous?
-         </p>
-      </div>
-      <!--  
-         <hr>
-         <div class="post-preview">
-             <a href="post.html">
-                 <h2 class="post-title">
-                     I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
-                 </h2>
-             </a>
-             <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 18, 2014</p>
-         </div>
-         -->
-      <!-- Pager
+      @views.html.blog.article("Utilise ton corps")("Posté le 14 décembre 2014"){
+          Cette phrase-là, je me la répétais souvent lors de ma deuxième grossesse pour me rappeler que mes douleurs "physiques" valaient vraiment la peine. 
+          J'allais avoir un bébé! Pour moi, il n'y rien de plus beau. Honnêtement, mes douleurs étaient avant tout mentales. 
+          J'avais du mal à accepter de voir des "énormes" varices apparaître sur une de mes jambes. Je n'avais aucun contrôle sur la circulation 
+          sanguine qui se faisait de moins en moins bonne et c'était insupportable. À quoi j'allais ressembler après ma grossesse?! Mais je trouvais 
+          encore plus insupportable de me voir aliénée par quelque chose de purement physique. En fait, je souffrais de la peur mais pas vraiment de douleur. 
+          Et cette peur prenait le contrôle de ma vie quotidienne. 
+          <br><br>
+          Je ne sais pas si ma fille aimerait lire ça, mais elle vaut mille 
+          varices sur mes jambes! Aujourd'hui je n'ai plus peur, presque plus; et "utilise ton corps" exprime bien plus qu'à l'origine. 
+          Mon corps subira des transformations toute ma vie, parce qu'il m'accompagne dans ma croissance personnelle. 
+          Il me montre ce que j'ai du mal à voir, est le reflet de qui je suis et me sert d'outil. Je respire, je bouge et je ressens ce 
+          qui vient de l'extérieur et de l'intérieur. "Utilise ton corps", c'est une invitation à laisser de côté notre tête, notre cerveau, 
+          nos pensées pour revenir à ce qui est ici et maintenant. Notre corps est le témoin du moment présent et le relais entre nous et notre âme. 
+          Qu'est-ce qu' "utilise ton corps" fait résonner en vous?
+      }
+      
+      @views.html.blog.teaser("Et pour 2015, beaucoup de sincérité !")("Posté le 17 décembre 2014"){
+		Cette année, je souhaite plus qu'un joyeux Noël plein d'amour et de petits bonheurs. J'en souhaite un plein de sincérité. 
+		C'est don ben dur d'être sincère parfois et je suis sûre qu'il m'arrive de ne pas l'être aussi souvent que je veux bien le croire. 
+		Savoir dire "oui", ça peut être très difficile; "oui" à ce qu'on veut réellement pour nous dans notre vie
+      }{
+		amoureuse, familiale ou professionnelle. 
+		Et savoir dire "non"? Je pense ben que ça peut être aussi "tough". Sauf qu'à chaque fois que je dis "oui" alors que je veux dire "non", je me sens pas ben à l'intérieur. 
+		Faut des "guts" pour savoir dire "non". Eh bien, je me suis rendu compte que même moi, une fille, j'en avais. Et ça fait tellement du bien quand on a réussi à dire 
+		son premier "non" qu'après ça devient beaucoup plus facile. On le sent direct à l'intérieur, qu'on est dans le bon. Puis, exprimé amicalement, ça passe comme une 
+		lettre à la poste! En fait, je pense qu'un message 100% sincère, ne peut pas être mal reçu. De toute façon, ce n'est plus de notre ressort après ça. 
+		<br><br>
+		Temps de revenir vers le "oui"! Parce qu'il y a tellement de choses auxquelles il faudrait dire "oui" dans la vie. Oui à une journée de congé! Oui à une nouvelle job! Oui à un nouvel ami! Oui à changer d'avis! Oui à l'école buissonnière pour les enfants! Oui à une chocolatine à la pistache! Juste parce que ça nous tente et surtout parce que ça répond à une envie sincère en dedans. Puisse 2015 être l'année de la sincérité pour nous tous!
+      }
+      
+      @views.html.blog.teaser("Du prana dans son café")("Posté le 15 décembre 2014"){
+        Mettre du café dans son prana. Le prana, c'est l'énergie vitale qui circule en nous, on le compare souvent avec l'air qui rentre et sort de
+        notre corps quand on respire. En fait, c'est bien plus, il y en a partout partout partout. Dans l'air, dans une chaise, dans une plante, dans une pensée...
+        Ce qui est merveilleux, c'est  
+      }{
+        que nous, l'être humain, on a cette capacité d'augmenter le prana qui circule, que ce soit dans notre corps ou dans notre café. Comment faire? Ben, je n'ai jamais lu de manuel sur la chose et je
+        pense qu'il existe 1 million de techniques. Chacun doit probablement pouvoir inventer la sienne. Personnellement, je sens que j'augmente 
+        le prana en moi lorsque j'arrive à mettre mon attention sur mon corps par exemple. Je me mets à accorder toute mon attention au ressenti physique, 
+        ou parfois c'est à mon ressenti émotionnel. Je sens que j'augmente le prana qui circule dans mes plantes lorsque je leur parle, lorsque 
+        je prends le temps de leur donner de l'eau. Je ne sais pas pourquoi, mais lorsque je fais ça vite parce que je suis pressée, j'ai l'impression qu'il y a 
+        moins de prana dans mes actions et moins d'énergie vitale dans mes plantes. Comment faire un bon latté? J'ai travaillé dans un café récemment et 
+        je m'amusais à croire que certains de mes cafés étaient meilleurs que d'autres parce que j'avais mis plus d'attention à les faire. 
+        Voilà donc la recette d'un délicieux café!
+      }
+         <!-- Pager
          <hr>
          <ul class="pager">
              <li class="next">
                  <a href="#">autre billets &rarr;</a>
              </li>
          </ul>
-          -->
+         -->
    </div>
 </div>
 }
