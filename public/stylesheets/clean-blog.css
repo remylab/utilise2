@@ -9,7 +9,7 @@ body {
   font-size: 20px;
   color: #404040;
 }
-p {
+p, li {
   line-height: 1.5;
   margin: 20px 0;
   font-size: medium;
@@ -23,7 +23,7 @@ p.big {
 }
 
 @media only screen and (min-width: 768px) {
-	p {
+	p, li {
 	  font-size: 22px;
 	}
 	.alert-info p {
@@ -439,6 +439,10 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: #0085a1;
+}
+
+.gallery div {
+	padding-bottom:80px;
 }
 
 

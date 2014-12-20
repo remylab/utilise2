@@ -1,0 +1,22 @@
+@()
+@import layouts._
+
+@head = {
+}
+
+@heading = {
+	<h1>Des photos, des dessins</h1>
+	<hr class="small">
+	<span class="subheading">et un peu n'importe quoi...</span>
+}
+
+@main("Yoga et méditation | Photos")(head)(heading)("pictures-bg.jpg") {
+<div class="row gallery">
+    <div class="col-md-10 col-md-offset-1">
+        <img class="img-responsive" src="/assets/images/pictures/hibou.jpg"/>
+    </div>
+    <div class="col-md-10 col-md-offset-1">
+        <img class="img-responsive" src="/assets/images/pictures/oiseau.jpg"/>
+    </div>
+</div>
+}

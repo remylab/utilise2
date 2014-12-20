@@ -21,5 +21,10 @@ public class Application extends Controller {
 
         return ok(contact.render());
     }
+    
+    public static Result pictures() {
+
+        return ok(pictures.render());
+    }
 
 }
