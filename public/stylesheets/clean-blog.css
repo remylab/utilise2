@@ -90,6 +90,13 @@ hr.dark {
   font-weight: 800;
   letter-spacing: 1px;
 }
+.navbar-custom.dark .nav li a {
+	color: #404040;
+}
+.navbar-custom.dark .navbar-brand {
+	color: #404040;
+}
+
 @media only screen and (min-width: 768px) {
   .navbar-custom {
     background: transparent;

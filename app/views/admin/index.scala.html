@@ -1,0 +1,27 @@
+@(member : Member)
+@import layouts._
+@import blog._
+
+@head = {
+}
+
+
+@adm("Yoga et méditation")(head){
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 col-xs-12">
+    @if(member != null ) {
+    	ok
+    } else {
+        
+        @helper.form(routes.Membership.login) {            
+            @if(flash.contains("errorLogin")) {
+                <p>echec</p>
+            }
+            <input type="username" name="username" placeholder="Username"><br>
+            <input type="password" name="password" placeholder="Password"><br>
+            <button type="submit">Connection</button>
+        }
+    } 
+    </div>
+</div>
+}
