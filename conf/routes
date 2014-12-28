@@ -10,6 +10,8 @@ GET     /photos                             controllers.Application.pictures()
 GET     /admin                              controllers.Application.admin()
 
 POST    /login                              controllers.Membership.login()
+POST    /addpost                            controllers.Admin.addPost()
+GET     /public/javascript/routes   		controllers.Application.jsRoutes()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

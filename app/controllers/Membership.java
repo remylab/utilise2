@@ -8,7 +8,7 @@ import play.mvc.Controller;
 import play.mvc.Result;
 
 public class Membership extends Controller {
-    public final static Form<LoginModel> loginForm = new Form<LoginModel>(LoginModel.class);
+    public final static Form<LoginModel> loginForm = Form.form(LoginModel.class);
 
     public static class LoginModel {
         public String username;

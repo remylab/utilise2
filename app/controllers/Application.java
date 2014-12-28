@@ -1,7 +1,9 @@
 package controllers;
 
+import play.Routes;
+import play.mvc.Controller;
+import play.mvc.Result;
 import models.Member;
-import play.mvc.*;
 
 public class Application extends Controller {
 
@@ -26,8 +28,13 @@ public class Application extends Controller {
         return ok(views.html.admin.index.render(member));
     }
 
-
     public static void onLogin(String username) {
         session("username", username);
+    }
+    
+
+    public static Result jsRoutes() {
+        response().setContentType("text/javascript");
+        return ok(Routes.javascriptRouter("jsRoutes", controllers.routes.javascript.Admin.addPost()));
     }
 }

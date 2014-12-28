@@ -1,0 +1,2 @@
+
+insert into member(id, username,password) values (1,'username','encrypted_password');
