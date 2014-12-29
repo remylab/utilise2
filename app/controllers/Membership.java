@@ -14,14 +14,26 @@ public class Membership extends Controller {
         public String username;
         public String password;
     }
+
+    public static void onLogin(String username) {
+        session("username", username);
+    }
     
+    public static void onLogout() {
+        session().remove("username");
+    }
+    
+    public static Result logout() {
+        onLogout();
+        return redirect(routes.Admin.index(1));
+    }
     public static Result login() {
         Form<LoginModel> form = loginForm.bindFromRequest();
 
         if (Member.authenticate(form.get().username, form.get().password) == null) {
             flash("errorLogin", "");
         } else {
-            Application.onLogin(form.get().username);
+            onLogin(form.get().username);
         }
         return redirect(routes.Admin.index(0));
 

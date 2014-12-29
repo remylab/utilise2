@@ -8,8 +8,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="yoga méditation coaching blog">
+    <meta name="author" content="Marie-Noëlle Reyntjens">
 
     <title>@title</title>
 
@@ -64,26 +64,7 @@
                 <a class="navbar-brand" href="@routes.Application.index()">Accueil</a>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                	<!-- 
-                    <li>
-                        <a href="#">journal</a>
-                    </li>
-                    -->
-                    <li>
-                        <a href="@routes.Application.about()">À propos</a>
-                    </li>
-                    <li>
-                        <a href="@routes.Application.pictures()">Photos</a>
-                    </li>
-                    <li>
-                        <a href="@routes.Application.contact()">contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+			@views.html.layouts.menu()
         </div>
         <!-- /.container -->
     </nav>
@@ -96,6 +77,7 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
 						@heading
+    					<div class="goto-admin" style="width:100%; height:30px; margin-bottom:10px;position:absolute; bottom:-10px;"></div>
                     </div>
                 </div>
             </div>

@@ -21,7 +21,9 @@ public class Admin extends Controller {
     
     public static Result index(int page) {
         Member member = Membership.getUser();
-        return ok(views.html.admin.index.render(member,null,page));
+        
+        int goPage = Math.max(1, page);
+        return ok(views.html.admin.index.render(member,null,goPage));
     }
     
     @Security.Authenticated(AjaxSecured.class)

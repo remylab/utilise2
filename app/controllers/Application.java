@@ -22,10 +22,6 @@ public class Application extends Controller {
     public static Result pictures() {
         return ok(views.html.pictures.render());
     }
-
-    public static void onLogin(String username) {
-        session("username", username);
-    }
     
 
     public static Result jsRoutes() {

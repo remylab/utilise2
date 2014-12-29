@@ -90,11 +90,14 @@ hr.dark {
   font-weight: 800;
   letter-spacing: 1px;
 }
-.navbar-custom.dark .nav li a {
-	color: #404040;
-}
+.navbar-custom.dark .nav li a,
 .navbar-custom.dark .navbar-brand {
 	color: #404040;
+}
+
+.navbar-custom.dark .nav li a:hover,
+.navbar-custom.dark .navbar-brand:hover {
+	color: #ccc;
 }
 
 @media only screen and (min-width: 768px) {

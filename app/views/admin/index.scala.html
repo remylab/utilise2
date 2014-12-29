@@ -9,6 +9,11 @@
 
 @adm("Yoga et méditation")(head){
 <div class="row">
+	<div class="col-xs-2 col-xs-offset-8">
+    	<a class="btn" href="@routes.Membership.logout()" >Logout</a>
+    </div>
+</div>
+<div class="row">
     <div class="col-md-8 col-md-offset-2 col-xs-12">
     @if(member != null ) {
     
@@ -24,19 +29,17 @@
 	    	<h4>Tout les billets</h4>
 		    	@defining( Util.getBlogResult(20,page) ) { blogResult =>
 
-		    		<div class="table-responsive">
-				    	<table class="table table-condensed">
-					    	<tr>
-					    		<th>Date</th>
-					    		<th>Titre</th>
-					    		<th>Online</th>
-					    		<th></th>
-					    	</tr>
-					    	@for( post <- blogResult.posts ) {
-					    		@views.html.admin.teaser( post )
-					    	}
-				    	</table>
-		    		</div>
+			    	<table class="table table-condensed">
+				    	<tr>
+				    		<th>Date</th>
+				    		<th>Titre</th>
+				    		<th>Online</th>
+				    		<th></th>
+				    	</tr>
+				    	@for( post <- blogResult.posts ) {
+				    		@views.html.admin.teaser( post )
+				    	}
+			    	</table>
 			    	@if( blogResult.total > 1 ) {
 				    	<nav>
 				    		<ul class="pagination">

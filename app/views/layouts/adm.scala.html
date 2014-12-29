@@ -64,26 +64,7 @@
                 <a class="navbar-brand" href="@routes.Application.index()">Accueil</a>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                	<!-- 
-                    <li>
-                        <a href="#">journal</a>
-                    </li>
-                    -->
-                    <li>
-                        <a href="@routes.Application.about()">À propos</a>
-                    </li>
-                    <li>
-                        <a href="@routes.Application.pictures()">Photos</a>
-                    </li>
-                    <li>
-                        <a href="@routes.Application.contact()">contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+            @views.html.layouts.menu()
         </div>
         <!-- /.container -->
     </nav>

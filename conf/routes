@@ -5,10 +5,11 @@
 # Home page
 GET     /                           		controllers.Application.index()
 GET     /contact							controllers.Application.contact()
-GET     /a-propos                           controllers.Application.about()
+GET     /mes-classes                        controllers.Application.about()
 GET     /photos                             controllers.Application.pictures()
 
 POST    /login                              controllers.Membership.login()
+GET     /logout                             controllers.Membership.logout()
 
 GET     /admin                              controllers.Admin.index(page: Int ?= 1)
 GET     /admin/:id                          controllers.Admin.editPost(id : Long)
