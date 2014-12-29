@@ -44,7 +44,7 @@ public class StringUtil {
     	BreakIterator bi = BreakIterator.getWordInstance();
     	
     	// dirty hack to avoid cutting funky characters, such as &quot; 
-    	String text =  s.replaceAll("[^A-Za-z]", "x");
+    	String text =  s.replaceAll("[^A-Za-z ]", "x");
     	
     	bi.setText(text);
     	int first_after = bi.following(nbChars);
