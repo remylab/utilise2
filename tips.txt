@@ -1,4 +1,6 @@
 
+## Ubuntu Env variables
+vi /etc/profile.d/myenv.sh
 
 ## Apache2 configuration
 a2enmod proxy
