@@ -85,6 +85,7 @@ public class StringUtil {
     	if ( "</p>".equals(last4) ) {
     		ret = ret.substring(0,ret.length()-4);
     	}
+    	
     	ret = ret.replaceAll("<p>", "");
     	ret = ret.replaceAll("</p>", "<br><br>");
     	
