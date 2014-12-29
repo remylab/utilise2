@@ -44,7 +44,7 @@ public class StringUtil {
     	BreakIterator bi = BreakIterator.getWordInstance();
     	
     	// dirty hack to avoid cutting HTLM characters, such as &quot; 
-    	String text =  s.replaceAll("[.,;:?-/]", "x");
+    	String text =  s.replaceAll("[.,;:?-]", "x");
     	
     	bi.setText(text);
     	int first_after = bi.following(nbChars);
