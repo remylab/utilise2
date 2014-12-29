@@ -1,5 +1,9 @@
 $(function() {
 	
+	$('.goto-admin').on('click',function(){
+		location = "/admin";
+	});
+	
 	// show next part of the post
 	$('.post-teaser .read-more a').on('click',function(){
 		$('.part2',$(this).closest('.post-preview')).fadeIn().css("display","inline");
