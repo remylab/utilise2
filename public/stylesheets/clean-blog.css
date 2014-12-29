@@ -9,7 +9,7 @@ body {
   font-size: 20px;
   color: #404040;
 }
-p, li {
+p, li, table {
   line-height: 1.5;
   margin: 20px 0;
   font-size: medium;
@@ -451,5 +451,7 @@ body {
 .gallery div {
 	padding-bottom:80px;
 }
-
+.newpost-preview * {
+	font-size:14px
+}
 

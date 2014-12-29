@@ -23,7 +23,7 @@ public class Membership extends Controller {
         } else {
             Application.onLogin(form.get().username);
         }
-        return redirect(routes.Application.admin());
+        return redirect(routes.Admin.index(0));
 
     }
 

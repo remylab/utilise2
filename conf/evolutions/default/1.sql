@@ -6,8 +6,9 @@
 create table blog_post (
   id                        bigint not null,
   member_id                 bigint not null,
-  title                     varchar(255),
-  body                      varchar(255),
+  title                     text,
+  body                      text,
+  body_html                 text,
   date_pub                  integer,
   is_online                 boolean,
   constraint pk_blog_post primary key (id))

@@ -22,11 +22,6 @@ public class Application extends Controller {
     public static Result pictures() {
         return ok(views.html.pictures.render());
     }
-    
-    public static Result admin() {
-        Member member = Membership.getUser();
-        return ok(views.html.admin.index.render(member));
-    }
 
     public static void onLogin(String username) {
         session("username", username);
@@ -35,6 +30,9 @@ public class Application extends Controller {
 
     public static Result jsRoutes() {
         response().setContentType("text/javascript");
-        return ok(Routes.javascriptRouter("jsRoutes", controllers.routes.javascript.Admin.addPost()));
+        return ok(Routes.javascriptRouter("jsRoutes", 
+        		controllers.routes.javascript.Admin.addPost(),
+        		controllers.routes.javascript.Admin.updatePost()
+        		));
     }
 }

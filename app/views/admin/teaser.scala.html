@@ -1,0 +1,13 @@
+@(post : BlogPost)
+@import tools._
+<tr>
+	<td>@StringUtil.postDate( post.datePub )</td>
+	<td>@post.title</td>
+	<td>
+		<input type="checkbox" @if(post.isOnline){checked} disabled="disabled">
+	</td>
+	<td>
+		<a href="@routes.Admin.editPost(post.id)" >Modifier</a>
+	</td>
+</tr>
+	

@@ -4,7 +4,7 @@ import models.Member;
 import play.mvc.Http;
 //import action.MemberAction;
 
-public class CtxHelper {
+public class Helper {
 
     /**
      * How to use in the view :

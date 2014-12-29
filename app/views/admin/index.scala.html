@@ -1,6 +1,7 @@
-@(member : Member)
+@(member : Member)(post : BlogPost)(page : Integer)
 @import layouts._
 @import blog._
+@import tools._
 
 @head = {
 }
@@ -10,7 +11,54 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2 col-xs-12">
     @if(member != null ) {
-    	@views.html.admin.newpost()
+    
+    	@if(post != null ) {
+    		<h4>Editer un billet</h4>
+    		@views.html.admin.editpost(post)
+    		<a href="@routes.Admin.index()" class="btn btn-default">Retour</a>
+    	} else {
+    		<h4>Nouveau billet</h4>
+    		@views.html.admin.newpost()
+    	
+	    	<br><br>
+	    	<h4>Tout les billets</h4>
+		    	@defining( Util.getBlogResult(20,page) ) { blogResult =>
+
+		    		<div class="table-responsive">
+				    	<table class="table table-condensed">
+					    	<tr>
+					    		<th>Date</th>
+					    		<th>Titre</th>
+					    		<th>Online</th>
+					    		<th></th>
+					    	</tr>
+					    	@for( post <- blogResult.posts ) {
+					    		@views.html.admin.teaser( post )
+					    	}
+				    	</table>
+		    		</div>
+			    	@if( blogResult.total > 1 ) {
+				    	<nav>
+				    		<ul class="pagination">
+				    			<li class="@if(blogResult.page==1){disabled}">
+				    				<a href="@routes.Admin.index(blogResult.page-1)" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+				    			</li>
+				    			@for(i <- blogResult.paginationFirst  until blogResult.paginationLast+1){
+				    				<li class="@if(i==blogResult.page){active}">
+				    					<a href="@routes.Admin.index(i)" >@i</a>
+				    				</li>
+				    			}
+								<li class="@if(blogResult.page==blogResult.total){disabled}">
+							      <a  href="@routes.Admin.index(blogResult.page+1)" aria-label="Next">
+							        <span aria-hidden="true">&raquo;</span>
+							      </a>
+							    </li>
+				    		</ul>
+				    	</nav>
+			    	}
+				}
+    	}
+    	
     } else {      
     
         @if(flash.contains("errorLogin")) {
