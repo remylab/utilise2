@@ -79,7 +79,13 @@ public class StringUtil {
     }
     
     public static String cleanHtml(String s) {
-    	String ret = s.replaceAll("<p>", "");
+    	String ret = s.trim();
+    	String last4 = ret.substring(ret.length()-4);
+    	
+    	if ( "</p>".equals(last4) ) {
+    		ret = ret.substring(0,ret.length()-4);
+    	}
+    	ret = ret.replaceAll("<p>", "");
     	ret = ret.replaceAll("</p>", "<br><br>");
     	
     	return ret;

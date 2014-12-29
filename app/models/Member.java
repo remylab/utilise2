@@ -40,7 +40,6 @@ public class Member extends Model {
     }
     
     public static Member authenticate(String username, String password) {
-    	System.out.println("find user/pwd :" + username + ", " + getStoredPassword(password));
         return Ebean.find(Member.class).where().eq("username", username).eq("password", getStoredPassword(password)).findUnique();
     }
 
