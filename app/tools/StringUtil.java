@@ -42,8 +42,13 @@ public class StringUtil {
 	}
     public static TextParts getParts(String s, int nbChars) {
     	BreakIterator bi = BreakIterator.getWordInstance();
-    	bi.setText(s);
+    	
+    	// dirty hack to avoid cutting HTLM characters, such as &quot; 
+    	String text =  s.replaceAll("[.,;:?-/]", "x");
+    	
+    	bi.setText(text);
     	int first_after = bi.following(nbChars);
+    	
     	String s1 = s.substring(0, first_after);
     	String s2 = s.substring(first_after, s.length());
     	return new TextParts(s1,s2);

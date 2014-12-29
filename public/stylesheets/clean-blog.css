@@ -9,7 +9,7 @@ body {
   font-size: 20px;
   color: #404040;
 }
-p, li, table {
+p, li, table, .post-body {
   line-height: 1.5;
   margin: 20px 0;
   font-size: medium;
@@ -23,7 +23,7 @@ p.big {
 }
 
 @media only screen and (min-width: 768px) {
-	p, li {
+	p, li, table, .post-body{
 	  font-size: 22px;
 	}
 	.alert-info p {
