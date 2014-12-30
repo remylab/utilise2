@@ -9,7 +9,7 @@
 
 @adm("Yoga et méditation")(head){
 <div class="row">
-	<div class="col-xs-2 col-xs-offset-8">
+	<div class="col-xs-4 col-xs-offset-6 col-md-4 col-md-offset-8">
     	<a class="btn" href="@routes.Membership.logout()" >Logout</a>
     </div>
 </div>
@@ -18,23 +18,22 @@
     @if(member != null ) {
     
     	@if(post != null ) {
-    		<h4>Editer un billet</h4>
+    		<h3>Editer un billet</h3>
     		@views.html.admin.editpost(post)
     		<a href="@routes.Admin.index()" class="btn btn-default">Retour</a>
     	} else {
-    		<h4>Nouveau billet</h4>
+    		<h3>Nouveau billet</h3>
     		@views.html.admin.newpost()
     	
 	    	<br><br>
-	    	<h4>Tout les billets</h4>
+	    	<h3>Tout les billets</h3><br>
 		    	@defining( Util.getBlogResult(20,page) ) { blogResult =>
 
 			    	<table class="table table-condensed">
 				    	<tr>
 				    		<th>Date</th>
 				    		<th>Titre</th>
-				    		<th>Online</th>
-				    		<th></th>
+				    		<th>On</th>
 				    	</tr>
 				    	@for( post <- blogResult.posts ) {
 				    		@views.html.admin.teaser( post )
