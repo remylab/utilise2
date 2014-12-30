@@ -38,17 +38,17 @@
 	    	@for( (post,index) <- blogResult.posts.zipWithIndex ) {
 	    	
 	    		@if(index==0) {
-	    			@views.html.blog.article(post.title)("Posté le " + StringUtil.frenchDate(post.datePub) ){ @Html(post.bodyHtml) }
+	    			@views.html.blog.article(post){ @Html(post.bodyHtml) }
 	    		} else {
 		    		@defining( StringUtil.getParts(post.bodyHtml,300) ) { parts =>
-						@views.html.blog.teaser(post.title)("Posté le " + StringUtil.frenchDate(post.datePub) ){@Html(parts.one)}{@Html(parts.two)}
+						@views.html.blog.teaser(post){@Html(parts.one)}{@Html(parts.two)}
 		    		}
 	    		}
 	    	}
 		}
         <ul class="pager">
             <li class="next">
-                <a href="@routes.Application.journal(1)">Tout les billets &rarr;</a>
+                <a href="@routes.Application.journal(1)">Tous les billets &rarr;</a>
             </li>
         </ul>
 

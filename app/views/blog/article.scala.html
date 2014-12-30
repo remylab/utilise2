@@ -1,7 +1,11 @@
-@(title: String)(date: String)(body: Html)
+@(post: BlogPost)(body: Html)
+
+@import tools._
 
 	<div class="post-preview">
-		<h2 class="post-title">@title</h2>
-		<div class="post-meta">@date</div>
+        <a href="@routes.Application.fullpost( StringUtil.toPrettyURL(post.title) + "-" + post.id )">
+        	<h2 class="post-title">@post.title</h2>
+        </a>
+		<div class="post-meta">Publié le @StringUtil.frenchDate(post.datePub)</div>
 		<div class="text-body">@body</div>
  	</div>
