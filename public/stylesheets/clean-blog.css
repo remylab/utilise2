@@ -252,7 +252,7 @@ hr.dark {
   }
 }
 .post-preview {
-  margin-bottom:60px;
+  margin-bottom:40px;
 }
 .post-preview > a {
   color: #404040;
@@ -263,8 +263,8 @@ hr.dark {
   color: #0085a1;
 }
 .post-preview > a > .post-title {
-  font-size: 30px;
-  margin-top: 30px;
+  font-size: 22px;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 .post-preview > a > .post-subtitle {

@@ -2,6 +2,8 @@ package tools;
 
 import java.security.MessageDigest;
 import java.text.BreakIterator;
+import java.text.Normalizer;
+import java.text.Normalizer.Form;
 import java.util.List;
 
 import models.BlogPost;
@@ -90,5 +92,11 @@ public class StringUtil {
     	ret = ret.replaceAll("</p>", "<br><br>");
     	
     	return ret;
+    }
+    
+    public static String toPrettyURL(String string) {
+        return Normalizer.normalize(string.toLowerCase(), Form.NFD)
+            .replaceAll("\\p{InCombiningDiacriticalMarks}+", "")
+            .replaceAll("[^\\p{Alnum}]+", "-");
     }
 }

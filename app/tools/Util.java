@@ -33,9 +33,9 @@ public class Util {
     	
         PagingList<BlogPost> pagingList = null;
         if ( withOffline ) {
-        	pagingList = Ebean.find(BlogPost.class).orderBy("datePub desc").findPagingList(pageSize);
+        	pagingList = Ebean.find(BlogPost.class).orderBy("datePub desc, id desc").findPagingList(pageSize);
         } else {
-        	pagingList = Ebean.find(BlogPost.class).where().eq("isOnline", true).orderBy("datePub desc").findPagingList(pageSize);
+        	pagingList = Ebean.find(BlogPost.class).where().eq("isOnline", true).orderBy("datePub desc, id desc").findPagingList(pageSize);
         }
         if ( pagingList != null) {
             pagingList.getFutureRowCount();
@@ -44,8 +44,17 @@ public class Util {
             int totalPages = page.getTotalPageCount(); 
             int currentPage = page.getPageIndex()+1;
             
+            int numPages = 7;
             int first = Math.max(1, currentPage-3);
             int last = Math.min(totalPages, currentPage+3);
+            
+            if ( (last-first+1)< numPages ) {
+            	last = Math.min(totalPages, last + (numPages-last+first-1) );
+            }
+
+            if ( (last-first+1) < numPages ) {
+            	first = Math.max(1, first - (numPages-last+first-1));
+            }
             
             return new BlogResult(page.getList(), currentPage,totalPages,first,last);
         }

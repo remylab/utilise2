@@ -7,6 +7,8 @@ GET     /                           		controllers.Application.index()
 GET     /contact							controllers.Application.contact()
 GET     /mes-classes                        controllers.Application.about()
 GET     /photos                             controllers.Application.pictures()
+GET     /journal                            controllers.Application.journal(page: Int ?= 1)
+GET     /journal/:title                     controllers.Application.fullpost(title: String)
 
 POST    /login                              controllers.Membership.login()
 GET     /logout                             controllers.Membership.logout()

@@ -1,0 +1,44 @@
+@(page : Integer)
+
+@import layouts._
+@import tools._
+
+@head = {
+}
+
+@heading = {
+	<h1>Journal</h1>
+	<hr class="small">
+}
+
+@main("Yoga et méditation | Journal")(head)(heading)("aquoi-bg.jpg") {
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+   	@defining( Util.getBlogResult(20,page) ) { blogResult =>
+
+    	@for( post <- blogResult.posts ) {
+    		@views.html.blog.title( post )
+    	}
+    	@if( blogResult.total > 1 ) {
+	    	<nav>
+	    		<ul class="pagination">
+	    			<li class="@if(blogResult.page==1){disabled}">
+	    				<a href="@routes.Application.journal(blogResult.page-1)" @if(blogResult.page==1){onclick="return false;"} aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+	    			</li>
+	    			@for(i <- blogResult.paginationFirst  until blogResult.paginationLast+1){
+	    				<li class="@if(i==blogResult.page){active}">
+	    					<a href="@routes.Application.journal(i)" >@i</a>
+	    				</li>
+	    			}
+					<li class="@if(blogResult.page==blogResult.total){disabled}">
+				      <a  href="@routes.Application.journal(blogResult.page+1)" @if(blogResult.page==blogResult.total){onclick="return false;"} aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				      </a>
+				    </li>
+	    		</ul>
+	    	</nav>
+    	}
+	}
+    </div>
+</div>
+}

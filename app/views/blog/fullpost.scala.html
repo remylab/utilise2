@@ -1,0 +1,27 @@
+@(post : BlogPost)
+
+@import layouts._
+@import tools._
+
+@head = {
+}
+
+@heading = {
+	<h1>@post.title</h1>
+    <span class="meta">Posté le  @StringUtil.frenchDate(post.datePub)</span>	
+}
+
+@main("Yoga et méditation | Journal")(head)(heading)("aquoi-bg.jpg") {
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    	<div class="text-body">
+	   		@Html(post.bodyHtml)
+	   	</div>
+        <ul class="pager">
+            <li class="next">
+                <a href="@routes.Application.journal(1)">Tout les billets &rarr;</a>
+            </li>
+        </ul>
+   	</div>
+</div>
+}

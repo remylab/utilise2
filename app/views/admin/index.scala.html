@@ -43,7 +43,7 @@
 				    	<nav>
 				    		<ul class="pagination">
 				    			<li class="@if(blogResult.page==1){disabled}">
-				    				<a href="@routes.Admin.index(blogResult.page-1)" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+				    				<a href="@routes.Admin.index(blogResult.page-1)" @if(blogResult.page==1){onclick="return false;"} aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
 				    			</li>
 				    			@for(i <- blogResult.paginationFirst  until blogResult.paginationLast+1){
 				    				<li class="@if(i==blogResult.page){active}">
@@ -51,7 +51,7 @@
 				    				</li>
 				    			}
 								<li class="@if(blogResult.page==blogResult.total){disabled}">
-							      <a  href="@routes.Admin.index(blogResult.page+1)" aria-label="Next">
+							      <a  href="@routes.Admin.index(blogResult.page+1)" @if(blogResult.page==blogResult.total){onclick="return false;"} aria-label="Next">
 							        <span aria-hidden="true">&raquo;</span>
 							      </a>
 							    </li>
