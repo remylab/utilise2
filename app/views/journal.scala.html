@@ -14,7 +14,7 @@
 @main("Yoga et méditation | Journal")(head)(heading)("aquoi-bg.jpg") {
 <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-   	@defining( Util.getBlogResult(20,page) ) { blogResult =>
+   	@defining( Util.getBlogResult(20,page,false) ) { blogResult =>
 
     	@for( post <- blogResult.posts ) {
     		@views.html.blog.title( post )
