@@ -41,7 +41,7 @@
 	    			@views.html.blog.article(post){ @Html(post.bodyHtml) }
 	    		} else {
 		    		@defining( StringUtil.getParts(post.bodyHtml,300) ) { parts =>	
-						@views.html.blog.teaser(post){ @parts.one }{ @parts.two }( (parts.two!=null) )
+						@views.html.blog.teaser(post){ @Html(parts.one) }{ @Html(parts.two) }( (parts.two!=null) )
 		    		}
 	    		}
 	    	}
