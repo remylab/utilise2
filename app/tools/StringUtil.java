@@ -43,16 +43,22 @@ public class StringUtil {
 		}
 	}
     public static TextParts getParts(String s, int nbChars) {
-    	BreakIterator bi = BreakIterator.getWordInstance();
     	
-    	// dirty hack to avoid cutting funky characters, such as &quot; 
-    	String text =  s.replaceAll("[^A-Za-z ]", "x");
+    	String s1 = s;
+    	String s2 = null;
     	
-    	bi.setText(text);
-    	int first_after = bi.following(nbChars);
-    	
-    	String s1 = s.substring(0, first_after);
-    	String s2 = s.substring(first_after, s.length());
+    	if ( s.length() > nbChars) {
+        	BreakIterator bi = BreakIterator.getWordInstance();
+        	
+        	// dirty hack to avoid cutting funky characters, such as &quot; 
+        	String text =  s.replaceAll("[^A-Za-z ]", "x");
+        	
+        	bi.setText(text);
+        	int first_after = bi.following(nbChars);
+        	
+        	s1 = s.substring(0, first_after);
+        	s2 = s.substring(first_after, s.length());	
+    	}
     	return new TextParts(s1,s2);
     }
     public static String frenchDate(int pubDate) {
@@ -88,6 +94,7 @@ public class StringUtil {
     		ret = ret.substring(0,ret.length()-4);
     	}
     	
+    	ret = ret.replaceAll("_","&nbsp;");
     	ret = ret.replaceAll("<p>", "");
     	ret = ret.replaceAll("</p>", "<br><br>");
     	

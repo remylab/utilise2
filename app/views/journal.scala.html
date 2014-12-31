@@ -14,6 +14,13 @@
 @main("Yoga et méditation | Journal")(head)(heading)("aquoi-bg.jpg") {
 <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    
+    
+    <p>
+    	<i>(Prends seulement ce qui fait du sens pour toi, ce qui résonne en dedans, te fais sourire,
+    	te rend heureux et t'aide à avancer. Le reste ne t'en préoccupes pas.)</i> 
+    </p>
+    <br>
    	@defining( Util.getBlogResult(20,page,false) ) { blogResult =>
 
     	@for( post <- blogResult.posts ) {

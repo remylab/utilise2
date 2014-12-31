@@ -35,9 +35,12 @@ public class Application extends Controller {
         	String postId = title.substring(index+1);
         	Long id = Long.parseLong(postId, 10);   
         	BlogPost post = BlogPost.finder.byId(id);
-    		return ok(views.html.blog.fullpost.render(post));
+        	
+        	if ( post.isOnline) {
+        		return ok(views.html.blog.fullpost.render(post));
+        	} 
     	}
-    	return ok(views.html.journal.render(1));
+		return ok(views.html.notfound.render());
     }
     
     public static Result jsRoutes() {

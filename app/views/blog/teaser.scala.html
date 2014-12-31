@@ -1,4 +1,4 @@
-@(post: BlogPost)(body1: Html)(body2: Html)
+@(post: BlogPost)(body1: Html)(body2: Html)(withPart2 : Boolean)
 
 @import tools._
 
@@ -9,9 +9,11 @@
 		<p class="post-meta">Publié le @StringUtil.frenchDate(post.datePub)</p>
 		<div class="post-teaser text-body" >
             <div class="part1" style="display:inline;">@body1</div>
-            <span class="read-more"> ... 
-                <a href="#" onclick="return false;">lire la suite &rarr;</a>
-            </span>
-            <div class="part2" style="display:none;">@body2</div>
+            @if( withPart2 ) {
+	            <span class="read-more"> ... 
+	                <a href="#" onclick="return false;">lire la suite &rarr;</a>
+	            </span>
+	            <div class="part2" style="display:none;">@body2</div>
+            }
 	    </div>
  	</div>
