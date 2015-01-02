@@ -34,7 +34,7 @@
       <hr class="dark">
       
 
-		@defining( Util.getBlogResult(10,1,false) ) { blogResult =>
+		@defining( Util.getBlogResult(5,1,false) ) { blogResult =>
 	    	@for( (post,index) <- blogResult.posts.zipWithIndex ) {
 	    	
 	    		@if(index==0) {
