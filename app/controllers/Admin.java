@@ -50,7 +50,7 @@ public class Admin extends Controller {
     
     @Security.Authenticated(AjaxSecured.class)
     public static Result updatePost(Long postId) {
-        BlogPost oldPost = BlogPost.finder.byId(postId);
+        BlogPost oldPost = BlogPost.findBlogById(postId); 
         
         DynamicForm dynForm = form.bindFromRequest();
         BlogPost newPost = getBlogFromRequest(dynForm);
@@ -74,7 +74,7 @@ public class Admin extends Controller {
     	
 
         Member member = Membership.getUser();
-    	BlogPost post = BlogPost.finder.byId(postId);
+    	BlogPost post = BlogPost.findBlogById(postId); 
     	
     	return ok(views.html.admin.index.render(member,post,0));
     }
@@ -99,7 +99,7 @@ public class Admin extends Controller {
 
         	return new BlogPost(title,body, bodyhtml, date,isOnline);	
     	} catch (Exception e) {
-    		System.out.println("getBlog error : " +  e.getMessage() );
+    		//System.out.println("getBlog error : " +  e.getMessage() );
     	}
     	return null;
     }

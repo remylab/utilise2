@@ -3,6 +3,7 @@ package controllers;
 import play.Routes;
 import play.mvc.Controller;
 import play.mvc.Result;
+import tools.StringUtil;
 import models.BlogPost;
 import models.Member;
 
@@ -29,14 +30,14 @@ public class Application extends Controller {
     }
     
     public static Result fullpost(String title) {
-    	int index = title.lastIndexOf("-");
     	
-    	if ( index > 0) {
-        	String postId = title.substring(index+1);
-        	Long id = Long.parseLong(postId, 10);   
-        	BlogPost post = BlogPost.finder.byId(id);
+    	Long postId = StringUtil.getBlogIdFromTitle(title);
+    	
+    	if ( postId != null ) {
+
+        	BlogPost post = BlogPost.findBlogById(postId); 
         	
-        	if ( post.isOnline) {
+        	if ( post != null && post.isOnline) {
         		return ok(views.html.blog.fullpost.render(post));
         	} 
     	}

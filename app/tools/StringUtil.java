@@ -104,6 +104,24 @@ public class StringUtil {
     public static String toPrettyURL(String string) {
         return Normalizer.normalize(string.toLowerCase(), Form.NFD)
             .replaceAll("\\p{InCombiningDiacriticalMarks}+", "")
-            .replaceAll("[^\\p{Alnum}]+", "-");
+            .replaceAll("[^\\p{Alnum}]+", "-")
+            .replaceAll("-$", "")
+        	.replaceAll("^-", "");
+        
+    }
+    
+    public static Long getBlogIdFromTitle(String title) {
+    	try {
+    		int index = title.lastIndexOf("-");
+    		if ( index > -1 ) {
+    			String postId = title.substring(index+1);
+        		return Long.parseLong(postId, 10);   
+    		} else {
+    			return Long.parseLong(title, 10);   
+    		}
+    	} catch(Exception e) {
+    		// ignore
+    	}
+    	return null;
     }
 }

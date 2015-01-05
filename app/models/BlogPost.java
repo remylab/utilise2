@@ -39,4 +39,9 @@ public class BlogPost extends Model {
     	oldPost.isOnline = newPost.isOnline;
     	oldPost.save();
     }
+    
+    public static BlogPost findBlogById(Long id) {
+    	return BlogPost.finder.byId(id);
+    	//return null;
+    }
 }
