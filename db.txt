@@ -1,2 +1,6 @@
 
 insert into member(id, username,password) values (1,'username','encrypted_password');
+
+## to change user password, make sure 
+vi /etc/postgresql/9.3/main/pg_hba.conf
+local   all             all                md5
