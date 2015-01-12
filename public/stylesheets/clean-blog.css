@@ -214,6 +214,9 @@ hr.dark {
   font-weight: 400;
   margin: 10px 0 0;
 }
+.subheading-small {
+  font-size: 24px;
+}
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading h1,
   .intro-header .page-heading h1 {
