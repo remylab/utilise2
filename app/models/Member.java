@@ -16,8 +16,8 @@ import tools.StringUtil;
 
 @Entity
 public class Member extends Model {
-    private static final long serialVersionUID = 1L;
-    private static String PASSWORD_SEED = "iamallaboutthatbassboutthatbass";
+	private static final long serialVersionUID = -8667761820072628252L;
+	private static String PASSWORD_SEED = "iamallaboutthatbassboutthatbass";
 
     @Id
     public long id;

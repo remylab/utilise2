@@ -1,0 +1,26 @@
+Date: Fri, 30 Jan 2015 16:41:56 -0500 (EST)
+From: Mister FROM <from@email.com>
+To: Miss TO <to@email.com>
+Message-ID: <1989909983.8.1422654116951.JavaMail.relazare@Remys-MacBook-Pro.local>
+Subject: Simple email
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_6_1569243427.1422654116948"
+
+------=_Part_6_1569243427.1422654116948
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_7_1027608782.1422654116948"
+
+------=_Part_7_1027608782.1422654116948
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+A text message
+------=_Part_7_1027608782.1422654116948
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html><body><p>An <b>html</b> message</p></body></html>
+------=_Part_7_1027608782.1422654116948--
+
+------=_Part_6_1569243427.1422654116948--

@@ -6,6 +6,8 @@ import play.mvc.Result;
 import tools.StringUtil;
 import models.BlogPost;
 import models.Member;
+import models.Subscriber;
+import tools.Util;
 
 public class Application extends Controller {
 
@@ -21,8 +23,8 @@ public class Application extends Controller {
         return ok(views.html.contact.render());
     }
     
-    public static Result pictures() {
-        return ok(views.html.pictures.render());
+    public static Result reading() {
+        return ok(views.html.reading.render());
     }
     
     public static Result journal(int page) {

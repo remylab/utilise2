@@ -8,9 +8,9 @@ import play.db.ebean.Model;
 
 @Entity
 public class BlogPost extends Model {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -8302829775934499318L;
 
-    public static Finder<Long, BlogPost> finder = new Finder<Long, BlogPost>(Long.class, BlogPost.class);
+	public static Finder<Long, BlogPost> finder = new Finder<Long, BlogPost>(Long.class, BlogPost.class);
 
     @Id
     public long id;

@@ -1,12 +1,20 @@
 package tools;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import models.BlogPost;
 
 import com.avaje.ebean.Ebean;
 import com.avaje.ebean.Page;
 import com.avaje.ebean.PagingList;
+
+import org.apache.commons.mail.EmailAttachment;
+
+import play.libs.mailer.Email;
+import play.libs.mailer.MailerPlugin;
 
 public class Util {
 	
@@ -25,7 +33,6 @@ public class Util {
 			this.paginationLast = last;
 		}
 	}
-	
 	public static BlogResult getBlogResult(int pageSize, int numPage) {
 		return getBlogResult(pageSize,numPage,true);
 	}
@@ -59,6 +66,41 @@ public class Util {
             return new BlogResult(page.getList(), currentPage,totalPages,first,last);
         }
         return null;
+    }
+    
+    public static boolean sendEmail() {
+        final Email email = new Email();
+        email.setSubject("Simple email");
+        email.setFrom("Mister FROM <from@email.com>");
+        email.addTo("Miss TO <to@email.com>");
+        //email.addAttachment("favicon.png", new File(Play.application().classloader().getResource("public/images/favicon.png").getPath()));
+        //email.addAttachment("data.txt", "data".getBytes(), "text/plain", "Simple data", EmailAttachment.INLINE);
+        email.setBodyText("A text message");
+        //email.setBodyHtml("<html><body><p>An <b>html</b> message</p></body></html>");
+        
+        
+        try {
+        	MailerPlugin.send(email);
+        	return true;
+        } catch (Exception e) {
+        	return false;
+        }
+    }
+    
+    public static Long getTimeNow() {
+
+        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
+        return calendar.getTime().getTime();
+    }
+
+    public static String getDate(Long time) {
+
+        final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss z");
+
+        // Give it to me in GMT time.
+        sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+        return sdf.format(time);
+
     }
     
 }

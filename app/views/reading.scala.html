@@ -1,0 +1,25 @@
+@()
+@import layouts._
+
+@head = {
+}
+
+@heading = {
+	<h1>Lectures et références</h1>
+	<hr class="small">
+}
+
+@main("Yoga et méditation à Montréal | Photos")(head)(heading)("pictures-bg.jpg") {
+
+<div class="row">
+   <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+   
+		@views.html.read.teaser("le bonheur est dans le prés")("Marie-Nooule")
+		@views.html.read.teaser("le bonheur est dans le prés")("Marie-Nooule")
+		@views.html.read.teaser("le bonheur est dans le prés")("Marie-Nooule")
+		@views.html.read.teaser("le bonheur est dans le prés")("Marie-Nooule")
+ 	
+	</div>
+ 	
+</div>
+}

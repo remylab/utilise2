@@ -5,9 +5,15 @@ $(function() {
 	});
 	
 	// show next part of the post
-	$('.post-teaser .read-more a').on('click',function(){
+	$('span.read-more a').on('click',function(){
 		$('.part2',$(this).closest('.post-preview')).fadeIn().css("display","inline");
 		$(this).parent().hide();
+	})
+	
+	// another read more
+	$('a.btn-plus').on('click',function(){
+		$('.part2',$(this).closest('.alert')).fadeIn();
+		$(this).hide();
 	})
 	
 	// ===============================

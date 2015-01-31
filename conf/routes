@@ -6,7 +6,7 @@
 GET     /                           		controllers.Application.index()
 GET     /contact							controllers.Application.contact()
 GET     /mes-classes                        controllers.Application.about()
-GET     /photos                             controllers.Application.pictures()
+GET     /lectures                           controllers.Application.reading()
 GET     /journal                            controllers.Application.journal(page: Int ?= 1)
 GET     /journal/:title                     controllers.Application.fullpost(title: String)
 
