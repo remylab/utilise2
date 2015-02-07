@@ -5,7 +5,7 @@ $(function() {
 	});
 	
 	// show next part of the post
-	$('span.read-more a').on('click',function(){
+	$('a.btn-plus2').on('click',function(){
 		$('.part2',$(this).closest('.post-preview')).fadeIn().css("display","inline");
 		$(this).parent().hide();
 	})
