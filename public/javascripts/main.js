@@ -13,7 +13,7 @@ $(function() {
 	// another read more
 	$('a.btn-plus').on('click',function(){
 		$('.part2',$(this).closest('.alert')).fadeIn();
-		$(this).hide();
+		$(this).closest('.read-more').remove();
 	})
 	
 	// ===============================
