@@ -15,6 +15,14 @@ body {
   font-size: medium;
 }
 
+.text-body a:link {
+	font-style: italic;
+}
+
+.read-more a:link {
+	text-decoration:none;
+}
+
 table {
   font-size:16px;
 }
