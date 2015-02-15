@@ -19,6 +19,7 @@ body {
 	font-style: italic;
 }
 
+
 .read-more a:link {
 	text-decoration:none;
 }
@@ -36,7 +37,7 @@ p.big {
 
 @media only screen and (min-width: 768px) {
 	.text-body {
-	  font-size: 22px;
+	  font-size: 18px;
 	}
 	.alert-info p {
 	  font-size: 18px;
@@ -201,7 +202,7 @@ hr.dark {
   .intro-header .site-heading,
   .intro-header .post-heading,
   .intro-header .page-heading {
-    padding: 150px 0;
+    padding: 80px 0;
   }
 }
 .intro-header .site-heading,
@@ -382,12 +383,9 @@ form .row:first-child .floating-label-form-group {
 }
 .btn {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
   font-size: 14px;
-  font-weight: 800;
   letter-spacing: 1px;
-  border-radius: 0;
-  padding: 15px 25px;
+  padding: 5px;
 }
 .btn-lg {
   font-size: 16px;

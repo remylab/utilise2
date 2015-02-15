@@ -26,7 +26,7 @@ $(function() {
 	$("form.newpostForm input.pubdate").val(day + " " + month + " " + year);
 	
 	// ==== NEW POST ====
-    $("form.newpostForm").bind('submit',function(event) {
+    $("form#newpostForm").bind('submit',function(event) {
     	event.preventDefault();
     	var form = $(this);
     	var title = $("input[name='title']",form).val();
@@ -54,7 +54,7 @@ $(function() {
         });
     });
 
-    $("form.updatepostForm").bind('submit',function(event) {
+    $("form#updatepostForm").bind('submit',function(event) {
     	event.preventDefault();
     	var form = $(this);
     	var postId = form.attr('data-postid');
@@ -82,7 +82,7 @@ $(function() {
         });
     });
     
-    
+    // update post : switch to preview 
     $('.btn-inactive').on('click',function(){
     	var active = $(this).hasClass('btn-inactive') ;
     	$(this).toggleClass('btn-inactive');
@@ -97,6 +97,44 @@ $(function() {
     		$('.newpost-body').show();
     		$(this).html("Preview");
     	}
+    });
+    
+    $("form#newsletterForm").bind('submit',function(event) {
+    	event.preventDefault();
+    	var form = $(this);
+    	var email = $("input[name='email']",form).val();
+    	
+    	if ( email.length == 0 ) return;
+        jsRoutes.controllers.Newsletter.add(email).ajax({
+            context: this,
+			data:{
+			},
+            success:function(data, textStatus, jqXHR) {
+            	$("input[name='email']",form).val("");
+            	alert("merci");
+            },
+            error:function() {
+            	alert("echec...");
+            }
+        });
+    });
+    
+    $("form#sendNewsletterForm").bind('submit',function(event) {
+    	event.preventDefault();
+    	var form = $(this);
+    	var postid = $("input[name='postid']",form).val();
+    	
+        jsRoutes.controllers.Newsletter.sendNewsletter(postid).ajax({
+            context: this,
+			data:{
+			},
+            success:function(data, textStatus, jqXHR) {
+            	alert("le billet a ete envoye aux abonnes");
+            },
+            error:function() {
+            	alert("echec...");
+            }
+        });
     });
     
 	

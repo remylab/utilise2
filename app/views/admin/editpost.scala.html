@@ -2,7 +2,7 @@
 @import tools._
 
 <br>
-<form class="updatepostForm form-horizontal" data-postid="@post.id">
+<form id="updatepostForm" class="form-horizontal" data-postid="@post.id">
 	<div class="form-group">
 		<div class="col-sm-3 col-xs-6">
 			<input type="text" class="pubdate form-control" name="pubdate" placeholder="dd mm yyyy" value="@StringUtil.postDate( post.datePub )">

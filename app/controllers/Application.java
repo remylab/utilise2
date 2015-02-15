@@ -50,7 +50,9 @@ public class Application extends Controller {
         response().setContentType("text/javascript");
         return ok(Routes.javascriptRouter("jsRoutes", 
         		controllers.routes.javascript.Admin.addPost(),
-        		controllers.routes.javascript.Admin.updatePost()
+        		controllers.routes.javascript.Admin.updatePost(),
+        		controllers.routes.javascript.Newsletter.add(),
+        		controllers.routes.javascript.Newsletter.sendNewsletter()
         		));
     }
 }

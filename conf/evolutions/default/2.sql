@@ -11,8 +11,13 @@ create table subscriber (
 
 create sequence subscriber_seq;
 
+alter table blog_post add column date_newsletter integer default 0;
+
+
 # --- !Downs
 drop table if exists subscriber cascade;
 
 drop sequence if exists subscriber_seq;
+
+alter table blog_post drop date_newsletter;
 

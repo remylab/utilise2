@@ -1,10 +1,7 @@
-@(text: String)(url: String)
+@(text: String)
 
 @import tools._
 
 	<div class="text-body" style="margin:0 0 10px 0;font-size:18px;">
 		- @text
-		@if( url != null) {
-			: <a href="@url">@url</a>
-		}
  	</div>

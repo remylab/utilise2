@@ -1,10 +1,14 @@
 package models;
 
+import java.text.SimpleDateFormat;
+import java.util.TimeZone;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 
 import play.db.ebean.Model;
+import tools.Util;
 
 @Entity
 public class BlogPost extends Model {
@@ -22,6 +26,7 @@ public class BlogPost extends Model {
     public String bodyHtml;
     public int datePub;
     public boolean isOnline;
+    public int dateNewsletter;
 
     public BlogPost(String title, String body, String bodyHtml,int datePub, boolean isOnline) {
         this.title = title;
@@ -38,6 +43,12 @@ public class BlogPost extends Model {
     	oldPost.datePub = newPost.datePub;
     	oldPost.isOnline = newPost.isOnline;
     	oldPost.save();
+    }
+    
+    public static void updateNewsletter(BlogPost post) {
+        
+    	post.dateNewsletter = Util.getTimeNowForDB();
+    	post.save();
     }
     
     public static BlogPost findBlogById(Long id) {

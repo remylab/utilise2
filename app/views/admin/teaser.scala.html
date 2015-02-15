@@ -7,5 +7,12 @@
 		<input type="checkbox" @if(post.isOnline){checked} disabled="disabled">
 		<a href="@routes.Admin.editPost(post.id)" >Modifier</a>
 	</td>
+	<td>
+		@if( post.dateNewsletter == 0 ) {
+			<a href="@routes.Newsletter.previewNewsletter(post.id)" >envoi</a>
+		} else {
+			@StringUtil.postDate( post.dateNewsletter )
+		}
+	</td>
 </tr>
 	

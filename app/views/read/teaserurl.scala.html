@@ -1,0 +1,10 @@
+@(text: String)(urlname: String)(url: String)
+
+@import tools._
+
+	<div class="text-body" style="margin:0 0 10px 0;font-size:18px;">
+		- @text
+		@if( url != null) {
+			: <a href="@url">@urlname</a>
+		}
+ 	</div>

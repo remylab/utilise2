@@ -68,15 +68,15 @@ public class Util {
         return null;
     }
     
-    public static boolean sendEmail() {
+    public static boolean sendEmail(String subject,String fromEmail, String toEmail, String body ) {
         final Email email = new Email();
-        email.setSubject("Simple email");
-        email.setFrom("Mister FROM <from@email.com>");
-        email.addTo("Miss TO <to@email.com>");
+        email.setSubject(subject);
+        email.setFrom(fromEmail);
+        email.addTo(toEmail);
         //email.addAttachment("favicon.png", new File(Play.application().classloader().getResource("public/images/favicon.png").getPath()));
         //email.addAttachment("data.txt", "data".getBytes(), "text/plain", "Simple data", EmailAttachment.INLINE);
-        email.setBodyText("A text message");
-        //email.setBodyHtml("<html><body><p>An <b>html</b> message</p></body></html>");
+        //email.setBodyText("A text message");
+        email.setBodyHtml(body);
         
         
         try {
@@ -91,6 +91,17 @@ public class Util {
 
         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
         return calendar.getTime().getTime();
+    }
+
+    
+    public static Integer getTimeNowForDB() {
+    	final SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+
+        // Give it to me in GMT time.
+        sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+        String sDate = sdf.format(getTimeNow());
+        
+        return Integer.parseInt(sDate);
     }
 
     public static String getDate(Long time) {

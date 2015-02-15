@@ -1,0 +1,17 @@
+@(post: BlogPost)(body1: Html)
+
+@import tools._
+
+<div class="">
+    <a href="@routes.Application.fullpost( StringUtil.toPrettyURL(post.title) + "-" + post.id )">
+    	<h2>@post.title</h2>
+    </a>
+	<div class="" >
+	    <div class="" style="display:inline;">@body1</div>
+	    <span class=""> ... 
+	        <a class="" href="@routes.Application.fullpost( StringUtil.toPrettyURL(post.title) + "-" + post.id )">
+	        	lire la suite &rarr;
+	        </a>
+	    </span>
+    </div>
+</div>
