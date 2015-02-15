@@ -30,7 +30,9 @@ public class Newsletter extends Controller {
     
     public static Result remove(String email,String token) {
     	String goodToken = getToken(email);
+    	
     	if (goodToken.equals(token)) {	
+    		Subscriber.removeSubscriber(email);
     	}
     	return ok(views.html.admin.unsubscribe.render(email));
     }
