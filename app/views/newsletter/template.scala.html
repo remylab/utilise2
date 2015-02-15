@@ -1,4 +1,4 @@
-@(post : BlogPost)(email : String)(token : String)
+@(baseUrl : String)(post : BlogPost)(email : String)(token : String)
 
 @import tools._
 
@@ -7,14 +7,14 @@
 
 	<p>
 	@defining( StringUtil.getParts(post.bodyHtml,300) ) { parts =>	
-		@views.html.newsletter.teaser(post){ @Html(parts.one) }
+		@views.html.newsletter.teaser(baseUrl)(post){ @Html(parts.one) }
 	}
 	<p>
 	
 	<br/>
 	
 	<p style="font-size:16px">
-	Pour vous désinscrire de cette liste d'envoi : <a href="@routes.Newsletter.remove(email,token)">>> Cliquez ici</a>
+	Pour vous désinscrire de cette liste d'envoi : <a href="@baseUrl@routes.Newsletter.remove(email,token)">>> Cliquez ici</a>
 	</p>
 
 </body>

@@ -41,8 +41,9 @@ public class Newsletter extends Controller {
     	BlogPost post = BlogPost.findBlogById(postId); 
     	
     	List<Subscriber> subList = Ebean.find(Subscriber.class).findList();
-    	
-    	String preview = views.html.newsletter.template.render(post, "email@test.com", "token").body();
+
+    	String baseUrl = "http://" + request().host() ;
+    	String preview = views.html.newsletter.template.render(baseUrl,post, "email@test.com", "token").body();
     	
     	return ok(views.html.admin.previewnewsletter.render(post,preview));
     }
@@ -55,12 +56,14 @@ public class Newsletter extends Controller {
     	
     	List<Subscriber> subList = Ebean.find(Subscriber.class).findList();
 
+    	
+    	String baseUrl = "http://" + request().host() ;
     	if ( post != null) {
         	for(Subscriber sub : subList) {
         		try {
 
-        	    	String body = views.html.newsletter.template.render(post, sub.email, getToken(sub.email)).body();
-        	    	tools.Util.sendEmail("Nouveau billet : " + post.title,"Utilisetoncorps.ca FROM <utilisetoncorps@gmail.com>",sub.email,body);
+        	    	String body = views.html.newsletter.template.render(baseUrl,post, sub.email, getToken(sub.email)).body();
+        	    	tools.Util.sendEmail("Nouveau billet : " + post.title,"Utilisetoncorps.ca <no-reply@utilisetoncorps.ca>",sub.email,body);
         	
         		} catch (Exception e) {
         			// ignore
