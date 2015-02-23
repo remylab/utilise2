@@ -23,7 +23,7 @@ $(function() {
 	var day = d.getUTCDate();
 	var month = d.getUTCMonth() + 1; //months from 1-12
 	var year = d.getUTCFullYear();
-	$("form.newpostForm input.pubdate").val(day + " " + month + " " + year);
+	$("#newpostForm input.pubdate").val(day + " " + month + " " + year);
 	
 	// ==== NEW POST ====
     $("form#newpostForm").bind('submit',function(event) {
