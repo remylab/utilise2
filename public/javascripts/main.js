@@ -99,6 +99,7 @@ $(function() {
     	}
     });
     
+    // subscribe to newsletters
     $("form#newsletterForm").bind('submit',function(event) {
     	event.preventDefault();
     	var form = $(this);
@@ -119,6 +120,7 @@ $(function() {
         });
     });
     
+    // send post to all subscribers
     $("form#sendNewsletterForm").bind('submit',function(event) {
     	event.preventDefault();
     	var form = $(this);
@@ -130,6 +132,25 @@ $(function() {
 			},
             success:function(data, textStatus, jqXHR) {
             	alert("le billet a ete envoye aux abonnes");
+            },
+            error:function() {
+            	alert("echec...");
+            }
+        });
+    });
+    
+    // send message
+    $("form#messageForm").bind('submit',function(event) {
+    	event.preventDefault();
+
+    	var form = $(this);
+    	var message = $("textarea[name='message']",form).val();
+    	
+        jsRoutes.controllers.Application.sendMessage(message).ajax({
+            context: this,
+			data:{},
+            success:function(data, textStatus, jqXHR) {
+            	alert("Merci, votre message a bien été envoyé !");
             },
             error:function() {
             	alert("echec...");

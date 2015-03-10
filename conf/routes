@@ -24,6 +24,7 @@ POST    /admin/addpost                      controllers.Admin.addPost()
 POST    /admin/updatepost                   controllers.Admin.updatePost(id : Long)
 POST 	/inscription/:email					controllers.Newsletter.add(email : String)
 POST    /newsletter/send/:id                controllers.Newsletter.sendNewsletter(id : Long)
+POST    /sendmessage                        controllers.Application.sendMessage(message : String)
 
 GET     /public/javascript/routes   		controllers.Application.jsRoutes()
 

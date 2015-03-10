@@ -1,6 +1,14 @@
 package controllers;
 
+import javax.persistence.PersistenceException;
+
+import org.apache.commons.lang3.StringUtils;
+
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import play.Routes;
+import play.data.DynamicForm;
+import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 import tools.StringUtil;
@@ -46,13 +54,30 @@ public class Application extends Controller {
 		return ok(views.html.notfound.render());
     }
     
+    public static Result sendMessage(String message) {
+    	
+        if ( !StringUtils.isEmpty(message) ) {
+    		try {
+
+    	    	String body = "<p>"+message+"</p>";
+    	    	tools.Util.sendEmail("Nouveau message","no-reply@utilisetoncorps.ca","utilisetoncorps@gmail.com",body);
+    	
+    		} catch (Exception e) {
+    			// ignore
+    		}
+        }
+
+        return ok();
+    }
+    
     public static Result jsRoutes() {
         response().setContentType("text/javascript");
         return ok(Routes.javascriptRouter("jsRoutes", 
         		controllers.routes.javascript.Admin.addPost(),
         		controllers.routes.javascript.Admin.updatePost(),
         		controllers.routes.javascript.Newsletter.add(),
-        		controllers.routes.javascript.Newsletter.sendNewsletter()
+        		controllers.routes.javascript.Newsletter.sendNewsletter(),
+        		controllers.routes.javascript.Application.sendMessage()
         		));
     }
 }

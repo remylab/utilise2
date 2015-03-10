@@ -19,6 +19,10 @@ body {
 	font-style: italic;
 }
 
+.text-body a {
+    color:#337ab7;
+}
+
 
 .read-more a:link {
 	text-decoration:none;
