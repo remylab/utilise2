@@ -150,6 +150,7 @@ $(function() {
             context: this,
 			data:{},
             success:function(data, textStatus, jqXHR) {
+                $("textarea[name='message']",form).val("");
             	alert("Merci, votre message a bien été envoyé !");
             },
             error:function() {
