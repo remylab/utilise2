@@ -27,6 +27,10 @@ public class Application extends Controller {
         return ok(views.html.about.render());
     }
     
+    public static Result coaching() {
+        return ok(views.html.coaching.render());
+    }
+    
     public static Result contact() {
         return ok(views.html.contact.render());
     }
