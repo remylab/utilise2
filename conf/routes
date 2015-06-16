@@ -8,6 +8,8 @@ GET     /contact							controllers.Application.contact()
 GET     /mes-classes                        controllers.Application.about()
 GET     /coaching                           controllers.Application.coaching()
 GET     /lectures                           controllers.Application.reading()
+GET     /ateliers                           controllers.Application.ateliers()
+GET     /tarot                              controllers.Application.tarot()
 GET     /journal                            controllers.Application.journal(page: Int ?= 1)
 GET     /journal/:title                     controllers.Application.fullpost(title: String)
 

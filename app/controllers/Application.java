@@ -39,6 +39,14 @@ public class Application extends Controller {
         return ok(views.html.reading.render());
     }
     
+    public static Result ateliers() {
+        return ok(views.html.ateliers.render());
+    }
+    
+    public static Result tarot() {
+        return ok(views.html.tarot.render());
+    }
+    
     public static Result journal(int page) {
         return ok(views.html.journal.render(page));
     }
