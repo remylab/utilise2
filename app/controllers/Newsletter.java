@@ -6,8 +6,10 @@ import org.springframework.util.StringUtils;
 
 import com.avaje.ebean.Ebean;
 
+import play.data.DynamicForm;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.Results;
 import play.mvc.Security;
 import tools.StringUtil;
 import models.BlogPost;
@@ -15,9 +17,15 @@ import models.Subscriber;
 
 public class Newsletter extends Controller {
 	private static String UNSUB_SEED = "etsiondormaitsouslesarbres";
+	private static final DynamicForm form = play.data.Form.form();
 
 
-    public static Result add(String email) {
+    
+    public static Result index() {
+        return ok(views.html.newsletter.index.render());
+    }
+    
+    public static Result addSubscriber(String email) {
     	if ( !StringUtils.isEmpty(email)) {
         	try {
             	Subscriber.addSubscriber(email);
@@ -45,14 +53,14 @@ public class Newsletter extends Controller {
     	List<Subscriber> subList = Ebean.find(Subscriber.class).findList();
 
     	String baseUrl = "http://" + request().host() ;
-    	String preview = views.html.newsletter.template.render(baseUrl,post, "email@test.com", "token").body();
+    	String preview = views.html.newsletter.templatePost.render(baseUrl,post, "email@test.com", "token").body();
     	
     	return ok(views.html.admin.previewnewsletter.render(post,preview));
     }
 
 
-    @Security.Authenticated(Secured.class)
-    public static Result sendNewsletter(Long postId) {
+    @Security.Authenticated(AjaxSecured.class)
+    public static Result sendPost(Long postId) {
 
     	BlogPost post = BlogPost.findBlogById(postId); 
     	
@@ -64,11 +72,11 @@ public class Newsletter extends Controller {
         	for(Subscriber sub : subList) {
         		try {
 
-        	    	String body = views.html.newsletter.template.render(baseUrl,post, sub.email, getToken(sub.email)).body();
+        	    	String body = views.html.newsletter.templatePost.render(baseUrl,post, sub.email, getToken(sub.email)).body();
         	    	tools.Util.sendEmail("Nouveau billet : " + post.title,"Utilisetoncorps.ca <no-reply@utilisetoncorps.ca>",sub.email,body);
         	
         		} catch (Exception e) {
-        			// ignore
+        			return Results.internalServerError();
         		}
         	}
         	BlogPost.updateNewsletter(post);
@@ -77,6 +85,34 @@ public class Newsletter extends Controller {
         	return ok();
     	}
     	return badRequest("postid not found : " + postId);
+    }
+
+
+    @Security.Authenticated(AjaxSecured.class)
+    public static Result sendNewsletter() {
+    	DynamicForm dynForm = form.bindFromRequest();
+    	
+    	String emailSubject = dynForm.get("title");
+    	String emailBody = dynForm.get("body");
+    	
+    	
+    	List<Subscriber> subList = Ebean.find(Subscriber.class).findList();
+
+    	
+    	String baseUrl = "http://" + request().host() ;
+    	for(Subscriber sub : subList) {
+    		try {
+
+    	    	String body = views.html.newsletter.templateNewsletter.render(baseUrl,emailBody, sub.email, getToken(sub.email)).body();
+    	    	tools.Util.sendEmail(emailSubject,"Utilisetoncorps.ca <no-reply@utilisetoncorps.ca>",sub.email,body);
+    	
+    		} catch (Exception e) {
+    			return Results.internalServerError();
+    		}
+    	}
+    	
+    	
+    	return ok();
     }
 
     

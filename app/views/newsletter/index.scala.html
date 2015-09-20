@@ -1,0 +1,26 @@
+@()
+@import layouts._
+
+@head = {
+}
+
+@heading = {
+}
+
+@main("Yoga et méditation à Montréal | Inscripton Infolettre")(head)(heading)("home-bg.jpg") {
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <h1>Infolettre</h1>
+    	<div class="text-body" style="margin:0;">
+			Pour vous inscrire à l'infolettre et à mes billets de blogue, entrez votre courriel ci-dessous et cliquez sur "Envoyer".
+			<br><br>
+	        <form id="newsletterForm" class="form-inline" style="font-size:medium;">
+	            <div class="form-group" >
+	                <input type="email" size=30 class="form-control" name="email" id="email" placeholder="Votre courriel">
+	                <button type="submit" class="btn btn-default btn-sm">Envoyer</button>
+	            </div>
+	        </form>
+	    </div>
+    </div>
+</div>
+}

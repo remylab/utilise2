@@ -1,0 +1,19 @@
+@(baseUrl : String)(bodyNewsletter : String)(email : String)(token : String)
+
+@import tools._
+
+<html>
+<body>
+
+	@Html(bodyNewsletter)
+	
+	<br/><br/><br/>
+	
+	<p>
+	(Pour vous désinscrire de cette liste d'envoi : <a href="@baseUrl@routes.Newsletter.remove(email,token)">>> Cliquez ici</a>)
+	</p>
+
+</body>
+
+</html>
+

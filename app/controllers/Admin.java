@@ -30,6 +30,11 @@ public class Admin extends Controller {
         return ok(views.html.admin.index.render(member,null,goPage));
     }
     
+    @Security.Authenticated(Secured.class)
+    public static Result indexNewsletter() {
+        return ok(views.html.admin.newsletter.render());
+    }
+    
     @Security.Authenticated(AjaxSecured.class)
     public static Result addPost() {
         Member member = Membership.getUser();

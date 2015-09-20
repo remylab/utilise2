@@ -54,6 +54,7 @@ $(function() {
         });
     });
 
+    // update post submit
     $("form#updatepostForm").bind('submit',function(event) {
     	event.preventDefault();
     	var form = $(this);
@@ -72,6 +73,29 @@ $(function() {
 				bodyhtml:bodyhtml,
 				pubdate:pubdate,
 				isonline:isonline
+			},
+            success:function(data, textStatus, jqXHR) {
+            	alert("done !");
+            },
+            error:function() {
+            	alert("echec...");
+            }
+        });
+    });
+    
+
+    $("form#sendnewsletterForm").bind('submit',function(event) {
+    	event.preventDefault();
+    	var form = $(this);
+    	var title = $("input[name='title']",form).val();
+    	var body = $("textarea[name='body']",form).val();
+    	var bodyhtml = markdown.toHTML(body);
+    	
+        jsRoutes.controllers.Newsletter.sendNewsletter().ajax({
+            context: this,
+			data:{
+				title:title,
+				body:bodyhtml
 			},
             success:function(data, textStatus, jqXHR) {
             	alert("done !");
@@ -106,13 +130,13 @@ $(function() {
     	var email = $("input[name='email']",form).val();
     	
     	if ( email.length == 0 ) return;
-        jsRoutes.controllers.Newsletter.add(email).ajax({
+        jsRoutes.controllers.Newsletter.addSubscriber(email).ajax({
             context: this,
 			data:{
 			},
             success:function(data, textStatus, jqXHR) {
             	$("input[name='email']",form).val("");
-            	alert("merci");
+            	alert("C'est fait, merci !");
             },
             error:function() {
             	alert("echec...");
@@ -126,7 +150,7 @@ $(function() {
     	var form = $(this);
     	var postid = $("input[name='postid']",form).val();
     	
-        jsRoutes.controllers.Newsletter.sendNewsletter(postid).ajax({
+        jsRoutes.controllers.Newsletter.sendPost(postid).ajax({
             context: this,
 			data:{
 			},
