@@ -84,6 +84,11 @@ $(function() {
     });
     
 
+    $("#newsletterPreSubmit").on('click',function(){
+    	$(this).fadeOut();
+    	$("#newsletterSubmit").fadeIn();
+    });
+    
     $("form#sendnewsletterForm").bind('submit',function(event) {
     	event.preventDefault();
     	var form = $(this);
