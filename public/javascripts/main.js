@@ -110,6 +110,7 @@ $(function() {
         });
     });
     
+    
     // update post : switch to preview 
     $('.newpost-preview').on('click',function(){
     	var active = $(this).hasClass('btn-inactive') ;

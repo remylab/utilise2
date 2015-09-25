@@ -1,6 +1,40 @@
-@(email : String)
+@(email : String, token : String)
+<html>
+<body>
+Pour confirmer la suppression de votre courriel - @email - de notre liste d'envoi,
+merci de cliquer sur le bouton "Confirmer" ci-dessous :
+<br/>
+<form id="unsubscribeconfirmForm">
+    <input name="email" type="hidden" value="@email">
+    <input name="token" type="hidden" value="@token">
+	<button type="submit" class="unsubscribe-btn btn btn-default">Confirmer</button>
+</form>
 
 
-Merci, <br/>
-Votre courriel : "@email", à bien été supprimé de la liste d'envoi.
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="/public/javascript/routes"></script>
+<script>
+$("form#unsubscribeconfirmForm").bind('submit',function(event) {
+	event.preventDefault();
+	var form = $(this);
+	var email = $("input[name='email']",form).val();
+	var token = $("input[name='token']",form).val();
+	
+    jsRoutes.controllers.Newsletter.unsubscribeConfirm().ajax({
+        context: this,
+		data:{
+			email:email,
+			token:token
+		},
+        success:function(data, textStatus, jqXHR) {
+        	$(".unsubscribe-btn").hide();
+        	alert("Votre courriel a bien été supprimé, merci.");
+        },
+        error:function() {
+        	alert("echec...");
+        }
+    });
+});
+</script>
+</body>
+</html>

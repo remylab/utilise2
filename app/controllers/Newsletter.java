@@ -36,13 +36,23 @@ public class Newsletter extends Controller {
     	return ok();
     }
     
-    public static Result remove(String email,String token) {
+    public static Result unsubscribeConfirm() {
+    	DynamicForm dynForm = form.bindFromRequest();
+    	
+    	String email = dynForm.get("email");
+    	String token = dynForm.get("token");
+    	
     	String goodToken = getToken(email);
     	
     	if (goodToken.equals(token)) {	
     		Subscriber.removeSubscriber(email);
     	}
-    	return ok(views.html.admin.unsubscribe.render(email));
+    	return ok();
+    }
+    
+    public static Result unsubscribe(String email,String token) {
+    	
+    	return ok(views.html.admin.unsubscribe.render(email,token));
     }
     
     @Security.Authenticated(Secured.class)

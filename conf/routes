@@ -23,7 +23,8 @@ GET     /admin/infolettre                   controllers.Admin.indexNewsletter()
 
 
 GET     /newsletter/preview/:id             controllers.Newsletter.previewNewsletter(id : Long)
-GET		/desinscription/:email/:token		controllers.Newsletter.remove(email : String, token : String)
+GET		/desinscription/:email/:token		controllers.Newsletter.unsubscribe(email : String, token : String)
+POST    /desinscriptionconfirm              controllers.Newsletter.unsubscribeConfirm()
 
 # Ajax
 POST    /admin/addpost                      controllers.Admin.addPost()

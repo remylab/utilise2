@@ -33,6 +33,8 @@ public class Subscriber extends Model {
     
     public static void removeSubscriber(String email) {
     	Subscriber subscriber = finder.where().eq("email", email).findUnique();
-    	subscriber.delete();
+    	if ( subscriber != null ) {
+        	subscriber.delete();
+    	}
     }
 }

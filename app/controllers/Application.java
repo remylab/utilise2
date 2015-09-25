@@ -90,6 +90,7 @@ public class Application extends Controller {
         		controllers.routes.javascript.Newsletter.addSubscriber(),
         		controllers.routes.javascript.Newsletter.sendPost(),
         		controllers.routes.javascript.Newsletter.sendNewsletter(),
+        		controllers.routes.javascript.Newsletter.unsubscribeConfirm(),
         		controllers.routes.javascript.Application.sendMessage()
         		));
     }
