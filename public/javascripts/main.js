@@ -94,13 +94,12 @@ $(function() {
     	var form = $(this);
     	var title = $("input[name='title']",form).val();
     	var body = $("textarea[name='body']",form).val();
-    	var bodyhtml = markdown.toHTML(body);
     	
         jsRoutes.controllers.Newsletter.sendNewsletter().ajax({
             context: this,
 			data:{
 				title:title,
-				body:bodyhtml
+				body:body
 			},
             success:function(data, textStatus, jqXHR) {
             	alert("done !");
@@ -112,7 +111,7 @@ $(function() {
     });
     
     // update post : switch to preview 
-    $('.btn-inactive').on('click',function(){
+    $('.newpost-preview').on('click',function(){
     	var active = $(this).hasClass('btn-inactive') ;
     	$(this).toggleClass('btn-inactive');
     	if ( active ){

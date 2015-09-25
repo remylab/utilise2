@@ -72,7 +72,7 @@ public class Application extends Controller {
     		try {
 
     	    	String body = "<p>"+message+"</p>";
-    	    	tools.Util.sendEmail("Nouveau message","no-reply@utilisetoncorps.ca","utilisetoncorps@gmail.com",body);
+    	    	tools.Util.sendEmailText("Nouveau message","no-reply@utilisetoncorps.ca","utilisetoncorps@gmail.com",body);
     	
     		} catch (Exception e) {
     			// ignore

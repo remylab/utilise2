@@ -73,7 +73,7 @@ public class Newsletter extends Controller {
         		try {
 
         	    	String body = views.html.newsletter.templatePost.render(baseUrl,post, sub.email, getToken(sub.email)).body();
-        	    	tools.Util.sendEmail("Nouveau billet : " + post.title,"Utilisetoncorps.ca <no-reply@utilisetoncorps.ca>",sub.email,body);
+        	    	tools.Util.sendEmailText("Nouveau billet : " + post.title,"Utilisetoncorps.ca <no-reply@utilisetoncorps.ca>",sub.email,body);
         	
         		} catch (Exception e) {
         			return Results.internalServerError();
@@ -104,7 +104,7 @@ public class Newsletter extends Controller {
     		try {
 
     	    	String body = views.html.newsletter.templateNewsletter.render(baseUrl,emailBody, sub.email, getToken(sub.email)).body();
-    	    	tools.Util.sendEmail(emailSubject,"Utilisetoncorps.ca <no-reply@utilisetoncorps.ca>",sub.email,body);
+    	    	tools.Util.sendEmailHTML(emailSubject,"Utilisetoncorps.ca <no-reply@utilisetoncorps.ca>",sub.email,body);
     	
     		} catch (Exception e) {
     			return Results.internalServerError();

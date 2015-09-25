@@ -1,24 +1,11 @@
-@(baseUrl : String)(bodyNewsletter : String)(email : String)(token : String)
-
-@import tools._
-
-<html>
-<body>
-
-	@Html(bodyNewsletter)
+@(baseUrl : String)(bodyNewsletter : String)(email : String)(token : String) @import tools._
+@bodyNewsletter
 	
-	<p>
-	Marie-Noëlle Reyntjens<br/>
-    Utilisetoncorps.ca<br/>
-    514 886 5210
-    </p>
-	
-    <!--br/><br/><br/>
-	<p>
-	(Pour vous désinscrire de cette liste d'envoi : <a href="@baseUrl@routes.Newsletter.remove(email,token)">>> Cliquez ici</a>)
-	</p-->
+Marie-Noëlle Reyntjens
+Utilisetoncorps.ca
+514 886 5210
 
-</body>
 
-</html>
-
+@**
+(Pour vous désinscrire de cette liste d'envoi : <a href="@baseUrl@routes.Newsletter.remove(email,token)">>> Cliquez ici</a>)
+**@

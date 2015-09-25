@@ -68,15 +68,27 @@ public class Util {
         return null;
     }
     
-    public static boolean sendEmail(String subject,String fromEmail, String toEmail, String body ) {
+    public static boolean sendEmailText(String subject,String fromEmail, String toEmail, String body ) {
+    	return sendEmail(subject,fromEmail,toEmail,body,false);
+    }
+    
+    public static boolean sendEmailHTML(String subject,String fromEmail, String toEmail, String body ) {
+    	return sendEmail(subject,fromEmail,toEmail,body,true);
+    }
+        
+    private static boolean sendEmail(String subject,String fromEmail, String toEmail, String body, boolean isHTML ) {
         final Email email = new Email();
         email.setSubject(subject);
         email.setFrom(fromEmail);
         email.addTo(toEmail);
         //email.addAttachment("favicon.png", new File(Play.application().classloader().getResource("public/images/favicon.png").getPath()));
         //email.addAttachment("data.txt", "data".getBytes(), "text/plain", "Simple data", EmailAttachment.INLINE);
-        //email.setBodyText("A text message");
-        email.setBodyHtml(body);
+
+        if ( isHTML ){
+            email.setBodyText(body);
+        } else {
+            email.setBodyHtml(body);
+        }
         
         
         try {
