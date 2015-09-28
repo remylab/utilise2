@@ -10,7 +10,6 @@ import models.BlogPost;
 import com.avaje.ebean.Ebean;
 import com.avaje.ebean.Page;
 import com.avaje.ebean.PagingList;
-import com.gargoylesoftware.htmlunit.util.StringUtils;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.mail.EmailAttachment;
