@@ -68,16 +68,8 @@ public class Util {
         }
         return null;
     }
-    
-    public static boolean sendEmailText(String subject,String fromEmail, String toEmail, String body ) {
-    	return sendEmail(subject,fromEmail,toEmail,body,false);
-    }
-    
-    public static boolean sendEmailHTML(String subject,String fromEmail, String toEmail, String body ) {
-    	return sendEmail(subject,fromEmail,toEmail,body,true);
-    }
         
-    private static boolean sendEmail(String subject,String fromEmail, String toEmail, String body, boolean isHTML ) {
+    public static boolean sendEmail(String subject,String fromEmail, String toEmail, String body) {
         final Email email = new Email();
         email.setSubject(subject);
         email.setFrom(fromEmail);
@@ -85,13 +77,9 @@ public class Util {
         //email.addAttachment("favicon.png", new File(Play.application().classloader().getResource("public/images/favicon.png").getPath()));
         //email.addAttachment("data.txt", "data".getBytes(), "text/plain", "Simple data", EmailAttachment.INLINE);
 
-        if ( isHTML ){
-        	body = StringEscapeUtils.escapeHtml4(body);
-            email.setBodyText(body);
-        } else {
-            email.setBodyHtml(body);
-        }
-        
+        email.setBodyHtml(body);
+        email.setBodyText(StringEscapeUtils.escapeHtml4(body));
+
         
         try {
         	MailerPlugin.send(email);

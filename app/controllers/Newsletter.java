@@ -59,8 +59,6 @@ public class Newsletter extends Controller {
     public static Result previewNewsletter(Long postId) {
 
     	BlogPost post = BlogPost.findBlogById(postId); 
-    	
-    	List<Subscriber> subList = Ebean.find(Subscriber.class).findList();
 
     	String baseUrl = "http://" + request().host() ;
     	String preview = views.html.newsletter.templatePost.render(baseUrl,post, "email@test.com", "token").body();
@@ -83,7 +81,7 @@ public class Newsletter extends Controller {
         		try {
 
         	    	String body = views.html.newsletter.templatePost.render(baseUrl,post, sub.email, getToken(sub.email)).body();
-        	    	tools.Util.sendEmailText("Nouveau billet : " + post.title,"Utilisetoncorps.ca <no-reply@utilisetoncorps.ca>",sub.email,body);
+        	    	tools.Util.sendEmail("Nouveau billet : " + post.title,"Utilisetoncorps.ca <no-reply@utilisetoncorps.ca>",sub.email,body);
         	
         		} catch (Exception e) {
         			return Results.internalServerError();
@@ -114,7 +112,7 @@ public class Newsletter extends Controller {
     		try {
 
     	    	String body = views.html.newsletter.templateNewsletter.render(baseUrl,emailBody, sub.email, getToken(sub.email)).body();
-    	    	tools.Util.sendEmailHTML(emailSubject,"Utilisetoncorps.ca <no-reply@utilisetoncorps.ca>",sub.email,body);
+    	    	tools.Util.sendEmail(emailSubject,"Utilisetoncorps.ca <no-reply@utilisetoncorps.ca>",sub.email,body);
     	
     		} catch (Exception e) {
     			return Results.internalServerError();

@@ -9,9 +9,9 @@
 	@defining( StringUtil.getParts(post.bodyHtml,300) ) { parts =>	
 		@views.html.newsletter.teaser(baseUrl)(post){ @Html(parts.one) }
 	}
-	<p>
+	</p>
 	
-	<br/><br/><br/>
+	<br><br><br>
 	
 	<p>
 	(Pour vous désinscrire de cette liste d'envoi : <a href="@baseUrl@routes.Newsletter.unsubscribe(email,token)">>> Cliquez ici</a>)
