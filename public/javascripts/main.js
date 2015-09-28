@@ -94,12 +94,13 @@ $(function() {
     	var form = $(this);
     	var title = $("input[name='title']",form).val();
     	var body = $("textarea[name='body']",form).val();
+    	var bodyhtml = markdown.toHTML(body);
     	
         jsRoutes.controllers.Newsletter.sendNewsletter().ajax({
             context: this,
 			data:{
 				title:title,
-				body:body
+				body:bodyhtml
 			},
             success:function(data, textStatus, jqXHR) {
             	alert("done !");
