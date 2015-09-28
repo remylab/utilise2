@@ -10,7 +10,9 @@ import models.BlogPost;
 import com.avaje.ebean.Ebean;
 import com.avaje.ebean.Page;
 import com.avaje.ebean.PagingList;
+import com.gargoylesoftware.htmlunit.util.StringUtils;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.mail.EmailAttachment;
 
 import play.libs.mailer.Email;
@@ -85,6 +87,7 @@ public class Util {
         //email.addAttachment("data.txt", "data".getBytes(), "text/plain", "Simple data", EmailAttachment.INLINE);
 
         if ( isHTML ){
+        	body = StringEscapeUtils.escapeHtml4(body);
             email.setBodyText(body);
         } else {
             email.setBodyHtml(body);
