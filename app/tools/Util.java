@@ -78,6 +78,7 @@ public class Util {
         //email.addAttachment("data.txt", "data".getBytes(), "text/plain", "Simple data", EmailAttachment.INLINE);
 
         email.setBodyHtml(body);
+        email.setBodyText(StringEscapeUtils.escapeHtml4(body));
 
         
         try {
