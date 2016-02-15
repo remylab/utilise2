@@ -519,3 +519,7 @@ content: "\2014 \2009";
 		text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	}
 }
+
+.site-heading  {
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
