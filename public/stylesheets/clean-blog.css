@@ -513,3 +513,9 @@ content: "\2014 \2009";
     max-width: 100%;
     height: auto;
 }
+
+@media only screen and (min-width: 768px) {
+	.site-heading, #bs-example-navbar-collapse-1 > ul > li, .navbar-header > a   {
+		text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	}
+}
