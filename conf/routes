@@ -6,7 +6,7 @@
 GET     /                           		controllers.Application.index()
 GET     /contact							controllers.Application.contact()
 GET     /mon-yoga                        	controllers.Application.about()
-GET     /ateliers                       	controllers.Application.ateliers()
+GET     /ateliers                       	controllers.Application.index()
 GET     /tarot                              controllers.Application.tarot()
 #GET     /pep-talk                           controllers.Application.coaching()
 #GET     /lectures                          controllers.Application.reading()
